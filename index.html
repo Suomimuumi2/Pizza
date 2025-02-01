@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza App</title>
-    <link rel="manifest" href="manifest.json">
-    <script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/service-worker.js")
-            .then((registration) => {
-                console.log("Service Worker registered with scope:", registration.scope);
-            })
-            .catch((error) => {
-                console.log("Service Worker registration failed:", error);
-            });
-    });
-}
-
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+            .register('/service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+        </script>
+        
+</head>
 </head>
 <body>
     <nav>
@@ -32,6 +32,8 @@ if ("serviceWorker" in navigator) {
         <div><h3 id="pizzaTypeTXT">Napol</h3></div>
     </nav>
     <main>
+        <button id="installButton" style="display:none;">Install App</button>
+
         <section id="type">
             <h2>Select Your Pizza Style</h2>
             <select id="pizzaType">

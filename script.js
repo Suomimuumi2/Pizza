@@ -5,6 +5,40 @@ function startTimer(timerKey, duration) {
     updateTimer(timerKey);
 }
 
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    // Prevent the default mini-infobar from appearing
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log("beforeinstallprompt fired");
+
+    // Show your custom install prompt (e.g., a button)
+    const installButton = document.getElementById("installButton");
+    installButton.style.display = "block";
+
+    // Ensure that the button click only triggers the prompt once
+    installButton.addEventListener("click", () => {
+        // Show the prompt
+        deferredPrompt.prompt();
+        console.log("Prompt triggered");
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === "accepted") {
+                console.log("User accepted the A2HS prompt");
+            } else {
+                console.log("User dismissed the A2HS prompt");
+            }
+
+            // Clear the deferredPrompt variable to prevent multiple triggers
+            deferredPrompt = null;
+        });
+    });
+});
+
+
+
 function updateTimer(timerKey) {
     const startTime = localStorage.getItem(timerKey);
     const duration = localStorage.getItem(`${timerKey}_duration`);
