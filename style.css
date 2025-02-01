@@ -1,0 +1,134 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    color: gold;
+}
+
+/* Body and background */
+body {
+    background: linear-gradient(135deg, rgb(18, 18, 18), rgb(8, 8, 8));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation bar */
+nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 15, 15, 0.9);
+    box-shadow: 0px 4px 10px rgba(255, 217, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav h1 {
+    font-family: Oswald, sans-serif;
+    font-size: 24px;
+    color: gold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+nav h3 {
+    color: rgb(207, 181, 10);
+    font-weight: 600;
+}
+
+/* Form elements */
+select, input, button {
+    margin: 15px 0px;
+    width: 85%;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid rgb(141, 123, 21);
+    padding: 12px 20px;
+    background: rgba(25, 25, 25, 0.85);
+    color: gold;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Styling */
+button {
+    background: gold;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(255, 217, 0, 0.25);
+}
+
+button:hover {
+    background: rgb(233, 200, 0);
+    box-shadow: 0px 6px 15px rgba(255, 217, 0, 0.5);
+}
+
+/* Main container */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+    gap: 8vh;
+}
+
+/* Section boxes */
+section {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 25px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 217, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+section:hover {
+    box-shadow: 0px 6px 25px rgba(255, 217, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Timer styles */
+#timer p {
+    font-size: 22px;
+    font-weight: bold;
+    color: gold;
+    margin-top: 10px;
+}
+
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 10px;
+}
+li {
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

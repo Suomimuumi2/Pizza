@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza App</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <h1>Pizza App</h1>
+        </div>
+        <div><h3 id="pizzaTypeTXT">Napol</h3></div>
+    </nav>
+    <main>
+        <section id="type">
+            <h2>Select Your Pizza Style</h2>
+            <select id="pizzaType">
+                <option value="napolitana">Pizza Napolitana</option>
+                <option value="new_york">New York Style Pizza</option>
+                <option value="pan_pizza">Pan Pizza</option>
+            </select>
+        </section>
+    
+        <section id="ingredients">
+            <h2>Enter Number of Pizzas</h2>
+            <input type="number" id="pizzaCount" value="1" min="1">
+            <button onclick="calculateIngredients()">Calculate Ingredients</button>
+            
+            <h2 id="in" style="display: none;">Ingredients Needed</h2>
+            <div id="ingredientsOutput"></div>
+        </section>
+        <section id="timer">
+            <button onclick="startTimer('rise1', 2 * 60 * 60)">Start First Rise</button>
+            <p id="timer1"></p>
+            <button onclick="startTimer('rise2', 6 * 60 * 60)">Start Second Rise</button>
+            <p id="timer2"></p>
+        </section>
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <ul>
+                <li>Start by mixing water and salt in a bowl, dissolving the salt in the water.</li>
+                <li>Add about 10% of the total flour weight to the water and stir to combine.</li>
+                <li>Dissolve the yeast in the water mixture.</li>
+                <li>Let the dough rest for about 10 minutes to activate the yeast.</li>
+                <li>Start the dough mixer on low speed and gradually add the remaining flour.</li>
+                <li>Knead the dough for about 20 minutes on low speed until a smooth, firm dough forms.</li>
+                <li>Cover the dough with a damp cloth and let it rest for about 2 hours at room temperature (around 25°C).</li>
+                <li>After 2 hours, divide the dough into 180-250 gram portions and shape them into balls by hand.</li>
+                <li>Allow the dough balls to rise for 4-6 hours in a covered container at room temperature.</li>
+                <li>Once the dough has risen, lightly flour a work surface and press the dough ball into a round shape by pressing from the center outwards, creating a raised edge (corricione) around the pizza.</li>
+                <li>Preheat your oven or pizza oven to a temperature of around 430°C at the base and 485°C at the top.</li>
+                <li>Top the pizza with a thin layer of tomato sauce, followed by mozzarella and other toppings of your choice.</li>
+                <li>Place the pizza in the oven and bake for 60-90 seconds, depending on the temperature and your oven.</li>
+            </ul>
+            <p style="font-weight: bold;margin-top: 20px;">&copy Pizzanpaistajat</p>
+        </section>
+        
+    </main>
+    <footer>
+        <h4>&copy Firesmith</h4>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
