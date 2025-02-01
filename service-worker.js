@@ -9,6 +9,7 @@ const STATIC_ASSETS = [
     "/icons/icon-512x512.png"
 ];
 
+// Install the Service Worker and cache static assets
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -17,14 +18,18 @@ self.addEventListener("install", (event) => {
     );
 });
 
+// Fetch event: Serve cached content when offline
 self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
-            return cachedResponse || fetch(event.request);
+            return cachedResponse || fetch(event.request).catch(() => {
+                return caches.match("/index.html"); // fallback if offline
+            });
         })
     );
 });
 
+// Activate event: Cleanup old caches
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((keys) => {
